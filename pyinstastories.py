@@ -12,6 +12,7 @@ import DBcleaner
 
 from tinydb import TinyDB, Query
 from xml.dom.minidom import parseString
+start_time = time.time()
 
 try:
 	import urllib.request as urllib
@@ -490,9 +491,11 @@ def start():
 			print("[I] The operation was aborted.")
 			print('-' * 70)
 			exit(0)
-	#exit(0)
-
 
 start()
 DBcleaner.clean()
 os.system('python uploader.py')
+exec_time = int(time.time() - start_time)
+minutes = int(exec_time / 60)
+seconds = exec_time % 60
+print("Elapsed time: {} min {} s".format(minutes,seconds))
