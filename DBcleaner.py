@@ -19,7 +19,9 @@ def isOld(date):
 
 def clean():
     removed = 0
+    counter = 0
     for item in db:
+        counter += 1
         timestamp = item['timestamp']
         filename = item['filename']
         user = item['user']
@@ -27,4 +29,4 @@ def clean():
         if isOld(timestamp):
             removed += 1
             db.remove(element['filename'] == filename and element['user'] == user and element['timestamp'] == timestamp)
-    print('Database cleaned! {} elements removed'.format(removed))
+    print('Database cleaned! {} of {} elements removed'.format(removed, counter))
