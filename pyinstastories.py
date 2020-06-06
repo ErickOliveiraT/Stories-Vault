@@ -8,6 +8,7 @@ import os
 import sys
 import time
 import subprocess
+import DBcleaner
 
 from tinydb import TinyDB, Query
 from xml.dom.minidom import parseString
@@ -43,14 +44,6 @@ python_version = sys.version.split(' ')[0]
 
 def formatDate(date):
     return str(date).split(' ')[0]
-
-def getTodayDate():
-    return formatDate(datetime.datetime.now())
-
-def isToday(date):
-    today = getTodayDate()
-    return date == today
-
 
 def to_json(python_object):
 	if isinstance(python_object, bytes):
@@ -501,4 +494,5 @@ def start():
 
 
 start()
+DBcleaner.clean()
 os.system('python uploader.py')
