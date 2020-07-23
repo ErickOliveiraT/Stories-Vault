@@ -468,8 +468,8 @@ def start():
 				exit(1)
 			if (index + 1) != len(users_to_check):
 				print('-' * 70)
-				print('[I] ({}/{}) 1 second time-out until next user...'.format((index + 1), len(users_to_check)))
-				time.sleep(1)
+				#print('[I] ({}/{}) 1 second time-out until next user...'.format((index + 1), len(users_to_check)))
+				#time.sleep(1)
 			print('-' * 70)
 		except Exception as e:
 			if not attempt == 3:
